@@ -1,0 +1,97 @@
+@import '../../../../stylesheets/generics/includables';
+
+.parallax1 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: url(http://placekitten.com/2000/2000) fixed;
+  padding: 200px 0;
+  position: relative;
+  height: 200px;
+}
+
+.section {
+  display: inline-block;
+}
+
+p {
+  color: $c-dark-hover;
+}
+
+ul {
+  list-style-type: circle;
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.room__wrapper {
+  border: 1px solid $c-light-hover;
+  border-radius: 5px;
+  background: $c-white;
+  margin: 10px 20%;
+  max-width: 80%;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 14px;
+  color: $c-dark;
+  text-align: center;
+
+  img {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .footer {
+    padding: 10px;
+    text-align: right;
+
+    a {
+      font-size: 13px;
+      text-align: center;
+      width: calc(50% - 20px);
+    }
+  }
+}
+
+ui-carousel {
+  height: 100%;
+}
+
+.dots {
+  height: 4px;
+  width: 100%;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+.dot {
+  height: 100%;
+  width: calc(100% / 6);
+  background: rgba($c-light-hover, 0.7);
+
+  &.active {
+    background: rgba($c-dark-hover, 0.7);
+  }
+}
+
+.dot:hover {
+  cursor: pointer;
+}
+
+.register-modal__wrapper {
+  padding: 40px 20px;
+}

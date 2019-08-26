@@ -1,0 +1,17 @@
+<page-section [bttButton]="false">
+  <ng-container *ngIf="activated">
+    <h2>Sehr gut!</h2>
+    <p>
+      Willkommen {{user.surname}},<br>
+      dein Account wurde erfolgreich aktiviert.<br>
+      <br>
+      Viel Spaß beim radl'n!
+    </p>
+  </ng-container>
+  <ng-container *ngIf="!activated">
+    <h2>Fehler</h2>
+    <p>
+      Irgendwas lief hier schief. Dein Account konnte leider nicht aktiviert werden!
+    </p>
+  </ng-container>
+</page-section>

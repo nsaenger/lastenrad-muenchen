@@ -1,0 +1,63 @@
+<div class="header__carousel">
+  <div (click)="navigateToHome()" class="header__logo" title="Go to Home"></div>
+
+  <div [ngClass]="{'sidebar-visible': sidebarVisible}" class="header__sidebar-puller">
+    <button (click)="toggleSidebar()" class="dark">
+      <i [ngClass]="{'fa-bars': !sidebarVisible, 'fa-chevron-right': sidebarVisible}" class="fas"></i>
+    </button>
+  </div>
+
+  <div class="header__user-button">
+    <button (click)="toggleUserPopUp()" class="dark">
+      <i [ngClass]="{'fa-user': !userPopupVisible, 'fa-chevron-up': userPopupVisible}" class="fas"></i>
+    </button>
+  </div>
+
+  <div *ngIf="userPopupVisible" class="header__user-popup-wrapper">
+    <div (click)="toggleUserPopUp()" class="blocker"></div>
+    <user-card (done)="toggleUserPopUp()"></user-card>
+  </div>
+
+  <ui-carousel
+      #uiCarousel
+      [arrows]="false"
+      [autoPlaySpeed]="5000"
+      [dots]="false"
+      [fade]="false"
+      [height]="'100%'"
+      [infinite]="true"
+      [speed]="500">
+
+    <ui-carousel-item>
+      <div class="carousel__img"
+           style="background-image: url('https://lastenrad-muenchen.de/core/img/photos/slide01.jpg')">
+        <p>Foto: www.economy-business.de</p>
+      </div>
+    </ui-carousel-item>
+
+
+    <ui-carousel-item>
+      <div class="carousel__img"
+           style="background-image: url('https://lastenrad-muenchen.de/core/img/photos/slide02.png')"></div>
+    </ui-carousel-item>
+
+    <div class="dots">
+      <div (click)="uiCarousel.goTo(0)" [ngClass]="{'active': uiCarousel.currentItemIndex === 0}"
+           class="dot"></div>
+      <div (click)="uiCarousel.goTo(1)" [ngClass]="{'active': uiCarousel.currentItemIndex === 1}"
+           class="dot"></div>
+    </div>
+  </ui-carousel>
+
+  <div class="medium-max full-width">
+    <div class="grid grid-3 no-gap">
+      <a class="btn lg menu dark" routerLink="/home">Start</a>
+      <a class="btn lg menu dark" routerLink="/book/">einfach buchen</a>
+      <a class="btn lg menu dark" routerLink="/how-it-works">So funktioniert's</a>
+      <a class="btn lg menu dark" routerLink="/become-station">Station werden</a>
+      <a class="btn lg menu dark" routerLink="/adfc">Daniel und der ADFC</a>
+      <a class="btn lg menu dark" routerLink="/donations">Die Spender</a>
+    </div>
+  </div>
+</div>
+

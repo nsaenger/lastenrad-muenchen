@@ -1,0 +1,9 @@
+<header></header>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<footer></footer>
+<modal></modal>
+
+<div *ngIf="blockerIsVisible" class="blocker"></div>
+<sidebar [ngClass]="{'visible': sidebarVisible}"></sidebar>

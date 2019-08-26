@@ -1,0 +1,56 @@
+<div class="user-card__wrapper">
+
+  <ng-container *ngIf="!user">
+    <form action="/" autocomplete="on" method="post">
+      <div class="full-width">
+
+        <mat-form-field class="full-width">
+          <input [errorStateMatcher]="matcher" [formControl]="emailCtrl" matInput placeholder="E-Mail" type="email"/>
+          <mat-error *ngIf="emailCtrl.hasError('email') && emailCtrl.hasError('required')">
+            <p>Keine gültige E-Mail Adresse</p>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input [errorStateMatcher]="matcher" [formControl]="passwordCtrl" matInput placeholder="Password"
+                 type="password"/>
+          <mat-error *ngIf="passwordCtrl.hasError('required')">
+            <p>Kein Passwort</p>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="grid grid-2 no-collapse">
+          <checkbox [(checked)]="autoLogin" [btnClass]="'light'">merken</checkbox>
+          <a (click)="login()"
+             class="btn light outline success">Login</a>
+        </div>
+      </div>
+    </form>
+
+    <hr>
+
+    <div class="grid grid-2">
+      <div></div>
+      <a (click)="register()" class="btn light outline"> Registrieren </a>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="user">
+    <div class="user-card__info">
+      <div class="grid grid-1">
+        <p>Hallo {{user.name}} <br><br><br></p>
+      </div>
+
+      <div class="grid grid-2">
+        <a [routerLink]="'/profile'"
+           class="btn light outline"
+        > Profil </a>
+
+        <a (click)="logout()"
+           class="btn light outline"
+        > Ausloggen </a>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

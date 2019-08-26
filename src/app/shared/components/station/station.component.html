@@ -1,0 +1,37 @@
+<div class="station__wrapper">
+  <h1 class="station__name">
+    {{station.name}}
+
+    <span class="station__date">
+      {{getPeriod()}}
+    </span>
+  </h1>
+
+  <div class="station__day-grid">
+    <div *ngFor="let week of weeks; let i = index" class="grid grid-7">
+      <day *ngFor="let day of week; let ii = index" [date]="getDateFromWeek(station.week[i], day)"
+           [disabled]="station.openDays.indexOf(day) === -1"
+           [orders]="station.orders"
+           [station]="station"
+           [user]="user"
+           class="day"
+      ></day>
+    </div>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="station__address">
+      <p>{{station.str}}</p>
+      <p>{{station.plz}} München</p>
+    </div>
+    <div class="station__open-days">
+      <p [innerHTML]="station.times"></p>
+    </div>
+    <div class="station__misc">
+      <p>{{station.tel}}</p>
+      <p>{{station.email}}</p>
+      <p>{{station.web}}</p>
+    </div>
+  </div>
+  <p [innerHTML]="station.info"></p>
+</div>

@@ -1,0 +1,10 @@
+<page-section [bttButton]="false" [contentID]="'BOOK_01'"></page-section>
+
+<page-section *ngIf="!user" [editable]="false">
+  <h2>Um Buchungen vornehmen zu können, müssen Sie sich zuerst einloggen.</h2>
+  <user-card></user-card>
+</page-section>
+
+<page-section [editable]="false">
+  <station *ngFor="let station of stations" [station]="station"></station>
+</page-section>

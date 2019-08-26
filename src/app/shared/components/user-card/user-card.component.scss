@@ -1,0 +1,17 @@
+@import '../../../../stylesheets/generics/includables';
+
+.user-card__wrapper {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  background-color: $c-light;
+  color: $c-dark;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, auto);
+  align-items: center;
+  padding: 10px;
+
+  p {
+    color: $c-dark;
+  }
+}

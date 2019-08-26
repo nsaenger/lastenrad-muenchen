@@ -1,0 +1,6 @@
+<h1>Utilized Technologies</h1>
+<div class="container">
+  <a *ngFor="let dep of getDeps()" class="btn lg light outline menu"
+     href="https://www.npmjs.com/package/{{dep.name}}"
+     target="_blank">{{dep.name}} (v. {{dep.version}})</a>
+</div>

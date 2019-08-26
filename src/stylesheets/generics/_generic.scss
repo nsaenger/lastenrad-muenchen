@@ -1,0 +1,251 @@
+@import 'includables';
+@import 'grid/grid';
+@import 'button/button';
+@import 'formats/formats';
+
+@font-face {
+  font-family: 'Kaushan Script';
+  src: url('https://fonts.gstatic.com/s/kaushanscript/v6/vm8vdRfvXFLG3OLnsO15WYS5DG74wNI.woff2');
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2');
+}
+
+*::-moz-focus-inner {
+  border: 0;
+}
+
+::selection {
+  background: $c-accent-hover;
+}
+
+::-moz-selection {
+  background: $c-accent-hover;
+}
+
+*:active,
+*:focus,
+*:hover,
+*.active {
+  outline: none;
+}
+
+html,
+body {
+  overflow: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: $c-light-darken;
+  background-color: $c-light;
+  font-size: 14px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: uppercase;
+  color: $c-accent;
+  letter-spacing: 1px;
+  font-family: "Varela Round", sans-serif;
+  text-align: center;
+
+  &.arrow {
+    content: ' ';
+    font-size: 15px;
+    text-transform: uppercase;
+    color: $c-accent;
+    letter-spacing: 1px;
+    background: url('https://www.suevo-guestphalia.de/img/h1-bg.png') no-repeat center bottom;
+    padding-bottom: 30px;
+    font-weight: bold;
+  }
+}
+
+.color-light {
+  * {
+    color: $c-light !important;
+  }
+}
+
+.color-light-darken-half {
+  * {
+    color: $c-light-darken-half !important;
+  }
+}
+
+p {
+  color: $c-dark-lighten-half;
+  margin-bottom: 5px;
+  font-size: 14px;
+
+  &.small {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  &.big {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+a {
+  color: $c-accent;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    color: $c-accent-hover;
+  }
+}
+
+a {
+  position: relative;
+
+  input[type=file] {
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: black;
+    display: inline-block;
+    opacity: 0;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+ol, ul {
+  list-style: none inside none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 0;
+    margin: 0;
+
+    ul,
+    ol {
+      margin-left: 10px;
+    }
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: $c-light-darken-half;
+
+  &.light {
+    background-color: $c-light-darken-half;
+  }
+
+  &.dark {
+    background-color: $c-dark-darken-half;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0;
+  background-color: $c-light-darken;
+
+  &:hover {
+    background-color: $c-light-darken-half;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: $c-light;
+}
+
+::-webkit-scrollbar-track:hover {
+}
+
+::-webkit-scrollbar-track:active {
+}
+
+::-webkit-scrollbar-corner {
+  background-color: $c-light;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.third-width {
+  width: 33%;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.clearfix::after {
+  content: ' ';
+  clear: both;
+  display: table;
+}
+
+/// OVERRIDE
+
+.mat-tab-link:focus,
+.mat-tab-label:focus {
+  background-color: transparent !important;
+  color: lighten($c-dark, 35%);
+
+  .close {
+    color: lighten($c-dark, 35%);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none !important;
+}

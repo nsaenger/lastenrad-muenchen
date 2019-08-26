@@ -1,0 +1,155 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$palette-accent: (
+  50 : #fdf0e0,
+  100 : #fad9b3,
+  200 : #f7c080,
+  300 : #f4a64d,
+  400 : #f19326,
+  500 : #ef8000,
+  600 : #ed7800,
+  700 : #eb6d00,
+  800 : #e86300,
+  900 : #e45000,
+  A100 : #ffffff,
+  A200 : #ffe3d8,
+  A400 : #ffbfa5,
+  A700 : #ffac8b,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+$palette-success: (
+  50 : #ebf8e7,
+  100 : #cdedc3,
+  200 : #ace19b,
+  300 : #8ad573,
+  400 : #71cc55,
+  500 : #58c337,
+  600 : #50bd31,
+  700 : #47b52a,
+  800 : #3dae23,
+  900 : #2da116,
+  A100 : #daffd4,
+  A200 : #aeffa1,
+  A400 : #82ff6e,
+  A700 : #6cff55,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+$palette-warning: (
+  50 : #f8f9e8,
+  100 : #efefc6,
+  200 : #e4e5a0,
+  300 : #d9db79,
+  400 : #d0d35d,
+  500 : #c8cb40,
+  600 : #c2c63a,
+  700 : #bbbe32,
+  800 : #b4b82a,
+  900 : #a7ac1c,
+  A100 : #feffe3,
+  A200 : #fcffb0,
+  A400 : #fbff7d,
+  A700 : #faff63,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+$primary: mat-palette($palette-accent, 500);
+$accent: mat-palette($palette-accent, 600, 100, 800);
+$success: mat-palette($palette-success, 600);
+$warning: mat-palette($palette-warning, 600);
+$error: mat-palette($mat-red, 600);
+
+$theme: mat-light-theme($primary, $accent, $error);
+
+@include angular-material-theme($theme);
+
+$c-black: #000;
+$c-white: #fff;
+
+$c-light: #F3F5F8;
+$c-light-hover: darken($c-light, 10%);
+$c-light-lighten: lighten($c-light, 50%);
+$c-light-lighten-half: lighten($c-light, 25%);
+$c-light-darken: darken($c-light, 50%);
+$c-light-darken-half: darken($c-light, 25%);
+
+$c-dark: #242830;
+$c-dark-hover: lighten($c-dark, 10%);
+$c-dark-lighten: lighten($c-dark, 50%);
+$c-dark-lighten-half: lighten($c-dark, 25%);
+$c-dark-darken: darken($c-dark, 50%);
+$c-dark-darken-half: darken($c-dark, 25%);
+
+$c-accent: map-get($accent, 600);
+$c-accent-hover: lighten($c-accent, 10%);
+$c-accent-lighten: lighten($c-accent, 50%);
+$c-accent-lighten-half: lighten($c-accent, 25%);
+$c-accent-darken: darken($c-accent, 50%);
+$c-accent-darken-half: darken($c-accent, 25%);
+
+$c-success: map-get($success, 600);
+$c-success-hover: lighten($c-success, 10%);
+$c-success-lighten: lighten($c-success, 50%);
+$c-success-lighten-half: lighten($c-success, 25%);
+$c-success-darken: darken($c-success, 50%);
+$c-success-darken-half: darken($c-success, 25%);
+
+$c-warning: map-get($warning, 600);
+$c-warning-hover: lighten($c-warning, 10%);
+$c-warning-lighten: lighten($c-warning, 50%);
+$c-warning-lighten-half: lighten($c-warning, 25%);
+$c-warning-darken: darken($c-warning, 50%);
+$c-warning-darken-half: darken($c-warning, 25%);
+
+$c-error: map-get($error, 600);
+$c-error-hover: lighten($c-error, 10%);
+$c-error-lighten: lighten($c-error, 50%);
+$c-error-lighten-half: lighten($c-error, 25%);
+$c-error-darken: darken($c-error, 50%);
+$c-error-darken-half: darken($c-error, 25%);

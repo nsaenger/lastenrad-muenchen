@@ -1,0 +1,82 @@
+<div *ngIf="!user" class="register-modal__wrapper">
+
+  <mat-form-field class="half-width">
+    <input [formControl]="surnameCtrl" matInput
+           name="surname"
+           placeholder="Vorname" title="Vorname" type="text"/>
+  </mat-form-field>
+  <mat-form-field class="half-width">
+    <input [formControl]="nameCtrl" matInput
+           placeholder="Nachname"
+           title="Nachname" type="text"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input [formControl]="aliasCtrl" matInput
+           placeholder="Alias*"
+           title="Alias" type="text"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input [formControl]="telCtrl" matInput
+           placeholder="Telefonnummer"
+           title="Telefonnummer" type="text"/>
+  </mat-form-field>
+
+  <mat-form-field class="half-width">
+    <input [formControl]="mailCtrl" matInput
+           placeholder="E-Mail Adresse*"
+           title="E-Mail Adresse" type="email"/>
+  </mat-form-field>
+  <mat-form-field class="half-width">
+    <input [formControl]="mailCCtrl" matInput
+           placeholder="E-Mail Adresse*"
+           title="E-Mail Adresse" type="email"/>
+  </mat-form-field>
+
+  <mat-form-field class="half-width">
+    <input [formControl]="passwordCtrl" matInput
+           placeholder="Passwort*" title="Passwort" type="password"/>
+  </mat-form-field>
+  <mat-form-field class="half-width">
+    <input [formControl]="passwordCCtrl" matInput
+           placeholder="Passwort*" title="Passwort" type="password"/>
+  </mat-form-field>
+
+  <div class="full-width">
+    <p>Alle mit einem * markierten Felder müssen ausgefüllt werden. Unsere
+      <a [routerLink]="'terms-of-use/'" class="btn light md outline">AGB</a>
+      können hier nachgelesen werden.</p>
+  </div>
+
+  <div class="grid grid-4">
+    <a (click)="closeModal()"
+       class="btn outline light error">Schließen</a>
+    <div></div>
+    <checkbox [(checked)]="acceptedAGB" [btnClass]="'light'">
+      AGB akzeptiert
+    </checkbox>
+    <a (click)="register()"
+       class="btn outline light success">Registrieren</a>
+  </div>
+</div>
+<div *ngIf="user">
+  <h2>Du bist bereits registriert und eingeloggt.</h2>
+  <p>Um einen neuen Account anzulegen, logge dich bitte zuerst aus und klicke dann erneut auf diesen Button.</p>
+
+  <br>
+  <br>
+
+  <div class="grid grid-4">
+    <a (click)="closeModal()"
+       class="btn outline light error">Schließen</a>
+    <div></div>
+    <a (click)="logout()"
+       class="btn light outline">
+      Ausloggen </a>
+    <a (click)="closeModal()"
+       [routerLink]="'/profile'"
+       class="btn light outline">
+      Profile </a>
+  </div>
+</div>

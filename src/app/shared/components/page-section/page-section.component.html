@@ -1,0 +1,24 @@
+<div [ngClass]="[parallax ? 'parallax' : '', editMode ? 'edit-mode' : '']"
+     class="page-section__wrapper">
+
+  <div
+    (click)="onClick($event)"
+    *ngIf="contentID"
+    [id]="contentID"
+    [innerHTML]="content | html"
+    [ngClass]="['columns-'+columns, parallax ? 'parallax' : '', editMode ? 'edit-mode' : '']"
+    [ngStyle]="{'background-image': 'url('+ parallaxImage +')'}"
+    class="page-section__content">
+  </div>
+
+  <div
+    (click)="onClick($event)"
+    *ngIf="!contentID"
+    [ngClass]="['columns-'+columns, parallax ? 'parallax' : '', editMode ? 'edit-mode' : '']"
+    [ngStyle]="{'background-image': 'url('+ parallaxImage +')'}"
+    class="page-section__content">
+    <ng-content></ng-content>
+  </div>
+
+  <scroll-to-top *ngIf="bttButton" class="page-section__btt-button"></scroll-to-top>
+</div>

@@ -1,0 +1,14 @@
+@import '../../../../stylesheets/generics/includables';
+
+:host {
+  position: relative;
+}
+
+.checkbox__wrapper {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}

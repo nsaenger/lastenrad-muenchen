@@ -1,0 +1,30 @@
+<div (click)="closeModal()" [ngClass]="{'hidden': !activeModal}" class="modal__blocker"></div>
+
+<div [ngClass]="[activeModal ? '' : 'hidden', activeModal?.size ? activeModal.size : '']" class="modal__wrapper">
+  <div [ngClass]="{'footer': activeModal?.actions}" class="modal__inner">
+    <div class="modal__heading">
+      <h1
+        [ngClass]="{'success': activeModal?.type==='SUCCESS','warning': activeModal?.type==='WARNING','error': activeModal?.type==='ERROR'}">
+        {{activeModal?.heading}}
+      </h1>
+      <a (click)="closeModal()" class="btn transparent error">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+
+    <div class="modal__content" id="modalContent">
+      <div #modalStringContent></div>
+      <ng-template #modalContent></ng-template>
+    </div>
+
+    <div *ngIf="activeModal?.actions" class="modal__footer">
+      <a (click)="executeAction(action.action)"
+         *ngFor="let action of activeModal?.actions"
+         [ngClass]="{'success': action.type==='SUCCESS','warning': action.type==='WARNING','error': action.type==='ERROR'}"
+         class="btn light outline"
+      >
+        {{action.text}}
+      </a>
+    </div>
+  </div>
+</div>

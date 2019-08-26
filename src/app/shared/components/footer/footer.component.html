@@ -1,0 +1,14 @@
+<div class="footer">
+  <a [routerLink]="'/imprint'" class="btn md menu dark">Impressum</a>
+  <a [routerLink]="'/data-protection'" class="btn md menu dark">Datenschutz</a>
+  <a [routerLink]="'/terms-of-use'" class="btn md menu dark">Nutzungsbedingungen</a>
+  <a [routerLink]="'/press'" class="btn md menu dark">Presse</a>
+  <a [routerLink]="'/contact'" class="btn md menu dark">kontakt</a>
+</div>
+
+<div class="legal">
+  <span>Administrator: {{author}}</span><br>
+  <span>Copyright &copy; {{getYear()}}</span><br>
+  <span>Utilized technologies: <a [routerLink]="'/credits'">Credits</a></span><br>
+  <span>Version: {{version}}</span>
+</div>

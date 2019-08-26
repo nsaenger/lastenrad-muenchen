@@ -1,0 +1,41 @@
+@import '../../../../stylesheets/generics/includables';
+
+.sidebar__blocker {
+  position: absolute;
+  height: 100vh;
+  width: 0;
+  z-index: 4;
+  background-color: rgba($c-light, 0);
+  transition: .3s;
+
+  &.visible {
+    width: 100%;
+    background-color: rgba($c-light, .5);
+  }
+}
+
+.sidebar__content {
+  position: absolute;
+  height: 100vh;
+  width: calc(100% - 50px);
+  right: calc(50px - 100%);
+  z-index: 4;
+  background-color: $c-light;
+  transition: .3s;
+
+
+  .user-card__wrapper {
+    background-color: $c-light;
+    height: auto;
+    padding: 20px;
+  }
+
+  navigation {
+    margin-top: 30px;
+  }
+
+  &.visible {
+    right: 0;
+  }
+}
+

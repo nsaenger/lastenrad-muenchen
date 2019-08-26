@@ -1,0 +1,28 @@
+@import '../../../../stylesheets/generics/includables';
+
+.station__wrapper {
+  padding: 10px;
+  margin-bottom: 60px;
+}
+
+.station__name {
+  text-align: left;
+  font-size: 25px;
+  line-height: 30px;
+  border-bottom: $c-accent-lighten-half 1px solid;
+
+  .station__date {
+    float: right;
+    font-size: 15px;
+    line-height: 30px;
+  }
+}
+
+.station__day-grid {
+  padding: 10px;
+  margin-bottom: 30px;
+
+  .day {
+
+  }
+}

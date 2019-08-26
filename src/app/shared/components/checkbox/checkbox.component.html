@@ -1,0 +1,5 @@
+<a (click)="toggle()"
+   [ngClass]="[(checked ? 'active' : ''), btnClass, btnSize]"
+   class="btn outline checkbox__wrapper">
+  <ng-content></ng-content>
+</a>

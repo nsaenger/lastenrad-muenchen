@@ -1,0 +1,14 @@
+<div (click)="onClick()"
+     [ngClass]="{
+      'occupied': data.occupant,
+      'booked': data.occupant === user?.alias,
+      'disabled': disabled,
+      'error': error,
+      'registered': user
+     }"
+     class="day__wrapper">
+  <div class="overlay"></div>
+  <h1>{{date | date:'EEEE':'+2':'de'}}</h1>
+  <h2>{{date | date:'d.M.yy'}}</h2>
+  <p>{{data.occupant ? data.occupant : (!disabled ? '~ frei ~' : '&nbsp;')}}</p>
+</div>

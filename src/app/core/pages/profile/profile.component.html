@@ -1,0 +1,70 @@
+<page-section *ngIf="user" [bttButton]="false" [editable]="false">
+  <h2>Profil von {{user.alias}}</h2>
+
+  <div class="grid grid-2 grid-align-start">
+    <div class="grid grid-1">
+      <h2>Daten:</h2>
+      <div class="full-width">
+        <mat-form-field class="full-width">
+          <input (keyup)="checkEquality()" [errorStateMatcher]="matcher" [formControl]="nameCtrl" matInput
+                 placeholder="Name"/>
+          <mat-error *ngIf="nameCtrl.hasError('required')"> Pflichtfeld</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input (keyup)="checkEquality()" [errorStateMatcher]="matcher" [formControl]="surnameCtrl" matInput
+                 placeholder="Vorname"/>
+          <mat-error *ngIf="surnameCtrl.hasError('required')"> Pflichtfeld</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input (keyup)="checkEquality()" [errorStateMatcher]="matcher" [formControl]="aliasCtrl" matInput
+                 placeholder="Alias"/>
+          <mat-error *ngIf="aliasCtrl.hasError('required')"> Pflichtfeld</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input (keyup)="checkEquality()" [errorStateMatcher]="matcher" [formControl]="telCtrl" matInput
+                 placeholder="Telefon"/>
+          <mat-error *ngIf="telCtrl.hasError('required')"> Pflichtfeld</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input disabled matInput placeholder="E-Mail" value="{{user.mail}}"/>
+          <mat-hint>Kann nicht geändert werden.</mat-hint>
+        </mat-form-field>
+      </div>
+      <br>
+      <p>Das ist alles. Mehr Daten speichern wir nicht über dich.</p>
+
+      <div style="maring: 25px 0;"></div>
+
+      <div *ngIf="!equality" class="grid grid-2">
+        <a (click)="resetProfileData()" class="btn outline light">Abbrechen</a>
+        <a (click)="saveProfileData()" class="btn outline light">Speichern</a>
+      </div>
+    </div>
+
+    <div class="grid grid-1">
+      <h2>Kommende Buchungen:</h2>
+
+      <div *ngIf="orders.length == 0">
+        <p>Du hast Daniel noch nicht gebucht. Das kannst du
+          <a class="btn light md orange outline" routerLink="/book">hier</a> nachholen
+        </p>
+      </div>
+
+      <div *ngFor="let order of orders">
+        <p class="align-right">Datum: <b>{{order.order.day | date:'d.M.yy'}}</b></p>
+        <div>
+          <p class="align-left"><b>{{order.station.name}} ({{order.station.tel}})</b></p>
+          <p [innerHTML]="order.station.info"></p>
+          <p [innerHTML]="order.station.times"></p>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</page-section>
+
+<user-card *ngIf="!user"></user-card>

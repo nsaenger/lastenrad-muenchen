@@ -1,0 +1,263 @@
+@import '../includables';
+
+.btn,
+button {
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  color: $c-dark;
+  background-color: $c-accent;
+  cursor: pointer;
+  transition: .2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  user-select: none;
+  font-size: 15px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  &[disabled] {
+    cursor: default;
+
+    &.dark,
+    &.success,
+    &.warning,
+    &.error,
+    &:hover {
+      background-color: $c-dark !important;
+    }
+
+    &.light,
+    &.success,
+    &.warning,
+    &.error,
+    &:hover {
+      background-color: $c-light !important;
+    }
+  }
+
+  &.menu {
+    width: calc(100% - 20px);
+    border: 0;
+
+    &.sm {
+      width: calc(100% - 10px);
+    }
+
+    &.lg {
+      width: calc(100% - 60px);
+    }
+  }
+
+  &.sm {
+    font-size: 10px;
+    padding: 2px 5px;
+
+    &.square {
+      padding: 5px 5px;
+    }
+  }
+
+  &.md {
+    font-size: 12px;
+    padding: 4px 10px;
+
+    &.square {
+      padding: 10px 10px;
+    }
+  }
+
+  &.lg {
+    padding: 15px 30px;
+    font-weight: bold;
+
+    &.square {
+      padding: 40px 40px;
+    }
+  }
+
+  &.round {
+    padding: 0;
+    line-height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  &.outline {
+    border: 1px solid $c-accent;
+    background-color: $c-dark;
+  }
+
+  @media (hover: none) {
+    &:hover,
+    &.active {
+      background-color: $c-accent;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+
+  &.light {
+    background-color: $c-light;
+    color: $c-dark;
+
+    &.outline {
+      background-color: $c-light;
+      border: 1px solid $c-dark;
+    }
+
+    &:hover,
+    &.active {
+      color: $c-light-hover;
+      background-color: $c-accent-hover;
+
+      &.outline {
+        border-color: $c-accent;
+        color: $c-accent;
+      }
+    }
+
+    &.state,
+    &:hover.success,
+    &.active.success {
+      color: $c-success;
+      background-color: $c-dark;
+
+      &.outline {
+        border-color: $c-success;
+      }
+    }
+
+    &.state,
+    &:hover.warning,
+    &.active.warning {
+      color: $c-warning;
+
+      &.outline {
+        border-color: $c-warning;
+      }
+    }
+
+    &.state,
+    &:hover.error,
+    &.active.error {
+      color: $c-error;
+
+      &.outline {
+        border-color: $c-error;
+      }
+    }
+
+    @media (hover: none) {
+      &:hover,
+      &.active {
+        background-color: $c-light-hover;
+      }
+    }
+  }
+
+  &.dark {
+    color: $c-light;
+    background-color: $c-dark;
+    text-shadow: none;
+
+    &.divider {
+      cursor: default;
+      line-height: 1px;
+      height: 1px;
+      padding: 0;
+      background-color: $c-dark-lighten;
+      border: 0;
+      margin: auto auto;
+
+      &:hover {
+        background-color: $c-dark-lighten;
+        border: 0;
+      }
+    }
+
+    &.outline {
+      border: 1px solid $c-light-hover;
+    }
+
+    &:hover {
+      &.outline {
+        border-color: $c-accent;
+      }
+    }
+
+    &.active {
+      background-color: $c-accent;
+      color: $c-dark;
+    }
+
+    @media (hover: none) {
+      &:hover,
+      &.active {
+        background-color: $c-light;
+      }
+    }
+  }
+
+  &:hover,
+  &.active {
+    color: $c-light;
+    background-color: $c-accent-hover;
+
+    &.outline {
+      background-color: transparent;
+      color: $c-accent;
+      border-color: $c-accent;
+    }
+
+    &.state,
+    &.success,
+    &.success {
+      color: $c-dark;
+      background-color: $c-success;
+
+      &.outline {
+        background-color: transparent;
+        color: $c-success;
+        border-color: $c-success;
+      }
+    }
+
+    &.state,
+    &.warning,
+    &.warning {
+      color: $c-dark;
+      background-color: $c-warning;
+
+      &.outline {
+        background-color: transparent;
+        color: $c-warning;
+        border-color: $c-warning;
+      }
+    }
+
+    &.state,
+    &.error,
+    &.error {
+      color: $c-dark;
+      background-color: $c-error;
+
+      &.outline {
+        background-color: transparent;
+        color: $c-error;
+        border-color: $c-error;
+      }
+    }
+
+    @media (hover: none) {
+      &:hover,
+      &.active {
+        background-color: transparent;
+      }
+    }
+  }
+}

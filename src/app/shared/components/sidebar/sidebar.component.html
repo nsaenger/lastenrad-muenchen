@@ -1,0 +1,15 @@
+<div (click)="closeSidebar()" [ngClass]="{'visible': visible}" class="sidebar__blocker"></div>
+<div [ngClass]="{'visible': visible}" class="sidebar__content">
+  <div class="user-card__wrapper">
+    <user-card></user-card>
+  </div>
+
+  <div class="sidebar grid grid-1 no-gap">
+    <a class="btn lg menu light" routerLink="/home">Start</a>
+    <a class="btn lg menu light" routerLink="/book">einfach buchen</a>
+    <a class="btn lg menu light" routerLink="/how-it-works">So funktioniert's</a>
+    <a class="btn lg menu light" routerLink="/become-station">Station werden</a>
+    <a class="btn lg menu light" routerLink="/adfc">Daniel und der ADFC</a>
+    <a class="btn lg menu light" routerLink="/donations">Die Spender</a>
+  </div>
+</div>

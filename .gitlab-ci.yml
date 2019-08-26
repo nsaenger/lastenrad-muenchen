@@ -1,0 +1,46 @@
+version:
+  stage: build
+  before_script:
+    - git config --global user.name "Pipeline"
+    - git config --global user.email "info@ninesun.de"
+  only:
+    - master
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /chore\(release\)/
+  tags:
+    - shell
+  script:
+    - sudo bash -ic "nvm install 10"
+    - sudo bash -ic "nvm use 10"
+    - sudo npm ci
+    - sudo npm run standard-version
+    - git push http://${PIPELINE_USERNAME}:${PERSONAL_ACCESS_TOKEN}@gitlab.ninesun.de/ninesun-development/lastenrad-muenchen.git HEAD:master
+
+build:
+  stage: build
+  only:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /chore\(release\)/
+  tags:
+    - shell
+  script:
+    - sudo bash -ic "nvm install 10"
+    - sudo bash -ic "nvm use 10"
+    - sudo npm ci
+    - sudo npm run build
+
+deploy:
+  stage: deploy
+  only:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /chore\(release\)/
+  tags:
+    - shell
+  script:
+    - sudo bash -ic "nvm install 10"
+    - sudo bash -ic "nvm use 10"
+    - sudo npm ci
+    - sudo npm run build
+    - sudo rm -rf /var/www/lastenrad-muenchen.ninesun.de/*
+    - sudo cp -r ./build/* /var/www/lastenrad-muenchen.ninesun.de/
